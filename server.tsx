@@ -16,8 +16,8 @@ app.post('/identities',async (req, res) => {
     let contactsWithSamePhoneNumber;
     
     [contactsWithSameEmail,contactsWithSamePhoneNumber]=await Promise.all([
-        queryDatabase(`select * from contacts where email= "${request.email}" order by createdAt desc;`),
-        queryDatabase(`select * from contacts where phoneNumber= "${request.phoneNumber}" order by createdAt desc;`)
+        queryDatabase(`select * from contacts where email= "${request.email}" order by createdAt asc;`),
+        queryDatabase(`select * from contacts where phoneNumber= "${request.phoneNumber}" order by createdAt asc;`)
     ]);
 
     let emails=[];
